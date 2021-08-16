@@ -44,9 +44,9 @@ function resetError(){
 
 function calculateProfitLoss(){
 
-    let init_price = initial_price.value;
-    let curr_price = current_price.value;
-    let quantity = stock_quantity.value;
+    let init_price = Number(initial_price.value);
+    let curr_price = Number(current_price.value);
+    let quantity = Number(stock_quantity.value);
 
     if(init_price > curr_price){
         
@@ -55,6 +55,7 @@ function calculateProfitLoss(){
         setOutput("Loss", loss, loss_per);
     }
     else if(init_price < curr_price){
+        error.innerText = `${curr_price} ${init_price}`
         let profit = ((curr_price - init_price) * quantity).toFixed(2);
         let profit_per = ((profit / init_price) * 100).toFixed(2);
         setOutput("Profit", profit, profit_per);
