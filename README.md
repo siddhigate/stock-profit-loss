@@ -10,4 +10,5 @@ Built using Vanilla JS, HTML and CSS
 - The app will then is the user in profit or loss and the profit or loss percentage
 - The app changes the theme of the app if the profit or loss percentage is greater than 50%
 
+### App snapshot
 ![screenshot](./assets/screenshot.png)
