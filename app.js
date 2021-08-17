@@ -24,11 +24,9 @@ function isValidInput(){
         setError("Please enter all the values");
     }
     else if(Number(initial_price.value) <= 0 || Number(current_price.value) <= 0 || Number(stock_quantity.value) <=0 ){
-        console.log("invalid")
         setError("Please enter valid values. Values should be greater than zero");
     }
     else{
-        console.log("valid")
         return true;
     }
 }
