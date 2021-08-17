@@ -51,13 +51,13 @@ function calculateProfitLoss(){
     if(init_price > curr_price){
         
         let loss = ((init_price - curr_price) * quantity).toFixed(2);
-        let loss_per = ((loss / init_price) * 100).toFixed(2);
+        let loss_per = ((loss / (init_price*quantity)) * 100).toFixed(2);
         setOutput("Loss", loss, loss_per);
     }
     else if(init_price < curr_price){
         
         let profit = ((curr_price - init_price) * quantity).toFixed(2);
-        let profit_per = ((profit / init_price) * 100).toFixed(2);
+        let profit_per = ((profit / (init_price*quantity)) * 100).toFixed(2);
         setOutput("Profit", profit, profit_per);
     }
     else{
@@ -70,19 +70,22 @@ function setOutput(status, amount, percentage){
 
     switch (status) {
         case "Profit":
-            container.style.background="#32Cd32";
             output.innerHTML = `<div><img src='./assets/profit.svg'></div><div style="margin:auto; font-size:1.2rem">The profit is ${amount} and the profit percentage is ${percentage} %</div>`
+            if(percentage >= 50){
+                container.style.background="#32Cd32";
+            }
             break;
 
         case "Loss":
-            container.style.background="#EF4444";
             output.innerHTML = `<div><img src='./assets/loss.svg'></div><div style="margin:auto; font-size:1.2rem">The loss is ${amount} and the loss percentage is ${percentage} %</div>`
-            output.innerText = `The loss is ${amount} and the loss percentage is ${percentage}`;
+            if(percentage >= 50){
+                container.style.background="#EF4444";
+            }
             break;
     
         case "Neutral":
             container.style.background="#FBBF24";
-            output.innerHTML = `<div><img src='./assets/neutral.svg'></div><div style="margin:auto; font-size:1.2rem">You earned No profit No loss</div>`
+            output.innerHTML = `<div><img src='./assets/neutral.svg'></div><div style="margin:auto; font-size:1.4rem">You earned No profit No loss</div>`
             break;
     
         default:
