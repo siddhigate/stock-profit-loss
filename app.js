@@ -71,17 +71,18 @@ function setOutput(status, amount, percentage){
     switch (status) {
         case "Profit":
             container.style.background="#32Cd32";
-            output.innerText = `The profit is ${amount} and the profit percentage is ${percentage}`;
+            output.innerHTML = `<div><img src='./assets/profit.svg'></div><div style="margin:auto; font-size:1.2rem">The profit is ${amount} and the profit percentage is ${percentage} %</div>`
             break;
 
         case "Loss":
             container.style.background="#EF4444";
+            output.innerHTML = `<div><img src='./assets/loss.svg'></div><div style="margin:auto; font-size:1.2rem">The loss is ${amount} and the loss percentage is ${percentage} %</div>`
             output.innerText = `The loss is ${amount} and the loss percentage is ${percentage}`;
             break;
     
         case "Neutral":
             container.style.background="#FBBF24";
-            output.innerText = "You earned No profit No loss"
+            output.innerHTML = `<div><img src='./assets/neutral.svg'></div><div style="margin:auto; font-size:1.2rem">You earned No profit No loss</div>`
             break;
     
         default:
