@@ -23,7 +23,7 @@ function isValidInput(){
     if(initial_price.value === "" || current_price.value === "" || stock_quantity.value === ""){
         setError("Please enter all the values");
     }
-    else if(initial_price.value <= 0 || current_price.value <= 0 || stock_quantity.value <=0 ){
+    else if(Number(initial_price.value) <= 0 || Number(current_price.value) <= 0 || Number(stock_quantity.value) <=0 ){
         console.log("invalid")
         setError("Please enter valid values. Values should be greater than zero");
     }
@@ -55,7 +55,7 @@ function calculateProfitLoss(){
         setOutput("Loss", loss, loss_per);
     }
     else if(init_price < curr_price){
-        error.innerText = `${curr_price} ${init_price}`
+        
         let profit = ((curr_price - init_price) * quantity).toFixed(2);
         let profit_per = ((profit / init_price) * 100).toFixed(2);
         setOutput("Profit", profit, profit_per);
