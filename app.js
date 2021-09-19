@@ -13,6 +13,9 @@ submit_btn.addEventListener("click", submitHandler);
 
 function submitHandler(){
     
+    resetError();
+    resetOutput();
+    
     if(isValidInput()){
         calculateProfitLoss();
     }
